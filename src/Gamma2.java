@@ -109,7 +109,7 @@ public class Gamma2{
             // create a panel to hold the components
             JPanel panel = new JPanel();
             panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
-            panel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+            panel.setBorder(BorderFactory.createEmptyBorder(10, 10, 14, 10));
 
             // COMPONENT-1: JLabel for the prompt
             JLabel promptLabel = new JLabel("Enter a number to calculate its gamma function:");
@@ -120,16 +120,25 @@ public class Gamma2{
             inputField.setBorder(BorderFactory.createEmptyBorder(4, 4, 4, 4));
             inputField.setAlignmentX(JTextField.CENTER_ALIGNMENT);
 
-            // COMPONENT-3: JButton to calculate the gamma function
+
+            // COMPONENT-3: JLabel to display the result
+            JLabel resultLabel = new JLabel();
+            resultLabel.setText("Result will be displayed here : ");
+            resultLabel.setAlignmentX(JLabel.CENTER_ALIGNMENT);
+            resultLabel.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
+
+
+            // COMPONENT-4: JButton to calculate the gamma function
             JButton calculateButton = new JButton("Calculate");
             calculateButton.setAlignmentX(JButton.CENTER_ALIGNMENT);
             calculateButton.setHorizontalTextPosition(SwingConstants.CENTER);
             calculateButton.setVerticalTextPosition(SwingConstants.CENTER);
 
-            // COMPONENT-4: JLabel to display the result
-            JLabel resultLabel = new JLabel();
-            resultLabel.setAlignmentX(JLabel.CENTER_ALIGNMENT);
-            resultLabel.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
+            // COMPONENT-5: JButton to exit the application
+            JButton exitButton = new JButton("Close");
+            exitButton.setAlignmentX(JButton.CENTER_ALIGNMENT);
+            exitButton.setHorizontalTextPosition(SwingConstants.CENTER);
+            exitButton.setVerticalTextPosition(SwingConstants.CENTER);
 
             calculateButton.addActionListener(e -> {
                 try {
@@ -152,11 +161,16 @@ public class Gamma2{
                 }
             });
 
+            exitButton.addActionListener(e -> {
+                frame.dispose();
+            });
+
             // add all components 1,2,3,4 to the panel
             panel.add(promptLabel);
             panel.add(inputField);
-            panel.add(calculateButton);
             panel.add(resultLabel);
+            panel.add(calculateButton);
+            panel.add(exitButton);
 
             frame.add(panel);
             frame.setVisible(true);
