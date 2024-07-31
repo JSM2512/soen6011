@@ -3,10 +3,14 @@ import javax.swing.*;
 public class Gamma2{
 
 
-    // formula for power used is
-    // x^y = x * x * x * ... * x (y times)
-    // x^y = x * x * x * ... * x (|y| times) if y is negative
-    // x^y = x^(n + fractionalPart) = x^n * x^(fractionalPart)
+    /**
+     * Power function to calculate the power of a number by applying the formula x^y = x * x * x * ... * x (y times)
+     * for negative exponent x^y = x * x * x * ... * x (|y| times)
+     * for fractional part x^y = x^(n + fractionalPart) = x^n * x^(fractionalPart)
+     * @param base
+     * @param exponent
+     * @return
+     */
     public static double power(double base, double exponent) {
         double result = 1.0;
         int n = (int) exponent;
@@ -32,8 +36,12 @@ public class Gamma2{
     }
 
 
-    // formula for lnApprox is
-    // ln(x) = 2 * [(x - 1) / (x + 1) + (1/3) * ((x - 1) / (x + 1))^3 + (1/5) * ((x - 1) / (x + 1))^5 + ...]
+    /**
+     * lnApprox function to calculate the natural logarithm of a number by applying the formula :
+     * ln(x) = 2 * [(x - 1) / (x + 1) + (1/3) * ((x - 1) / (x + 1))^3 + (1/5) * ((x - 1) / (x + 1))^5 + ...]
+     * @param x
+     * @return natural logarithm of x
+     */
     private static double lnApprox(double x) {
         if (x <= 0) throw new IllegalArgumentException("lnApprox not defined for non-positive values.");
         double sum = 0.0;
@@ -50,8 +58,12 @@ public class Gamma2{
         return 2 * sum;
     }
 
-    // formula for expApprox is
-    // e^x = 1 + x + (x^2 / 2!) + (x^3 / 3!) + (x^4 / 4!) + ...
+    /**
+     * expApprox function to calculate the exponential of a number by applying the formula :
+     * e^x = 1 + x + (x^2 / 2!) + (x^3 / 3!) + (x^4 / 4!) + ...
+     * @param x
+     * @return exponential value of x
+     */
     private static double expApprox(double x) {
         double sum = 1.0;
         double term = 1.0;
@@ -64,6 +76,12 @@ public class Gamma2{
         return sum;
     }
 
+
+    /**
+     * round function to round off the number to the nearest integer
+     * @param number
+     * @return rounded off number
+     */
     public static double round(double number) {
         int integer = (int) number;
         double decimal = number - integer;
@@ -75,11 +93,12 @@ public class Gamma2{
     }
 
 
-    // Implementing Euler's Infinite series Gamma approximation
-    // Function Gamma(z) =  prod n = 1..infinity { [(1 + 1/n)^z / (1 + z/n)] } * (1/z)
-    // Values greater than 170 will result in infinity
-    // if we want to calculate gamma function for values greater than 170, we need to use BigDecimal
-    // double range in java is 1.7e-308 to 1.7e+308
+    /**
+     * eulerInfiniteGamma function to calculate the gamma function for values greater than 170
+     * formula : gamma(z) = prod n = 1..infinity { [(1 + 1/n)^z / (1 + z/n)] } * (1/z)
+     * @param z
+     * @return product obtained by applying Euler's infinite product formula
+     */
     private static double eulerInfiniteGamma(double z) {
         double product = 1;
         for (int n = 1; n <= 80000; n++) {
@@ -91,6 +110,12 @@ public class Gamma2{
         return product / z;
     }
 
+    /**
+     * gamma function to calculate the gamma function for a given number
+     * formula : gamma(z) = (z-1) * gamma(z-1)
+     * @param number
+     * @return gamma value of the number
+     */
     public static double gamma(double number) {
         if (round(number) != number) {
             return eulerInfiniteGamma(number);
@@ -101,6 +126,10 @@ public class Gamma2{
         return ((number - 1) * gamma(number - 1));
     }
 
+    /**
+     * main function to create the GUI for the gamma function calculator using Swing
+     * @param args
+     */
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
 
