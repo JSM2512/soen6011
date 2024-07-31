@@ -161,7 +161,7 @@ public class Gamma2 {
    */
 
   public static double gamma(double number) {
-    if (round(number) != number) {
+    if (round(number) != number || number >= 25) {
       return eulerInfiniteGamma(number);
     }
     if (number == 1) {
