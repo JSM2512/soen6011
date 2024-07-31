@@ -12,7 +12,7 @@ public class Gamma2{
         int n = (int) exponent;
         double fractionalPart = exponent - n;
 
-        for (int i = 0; i < Math.abs(n); i++) {
+        for (int i = 0; i < absolute(n); i++) {
             result *= base;
         }
 
@@ -25,6 +25,10 @@ public class Gamma2{
         }
 
         return result;
+    }
+
+    private static int absolute(int n) {
+        return n < 0 ? -n : n;
     }
 
 
