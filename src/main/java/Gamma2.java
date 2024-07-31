@@ -1,3 +1,6 @@
+package main.java;
+
+import java.awt.Component;
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
@@ -7,6 +10,8 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.SwingUtilities;
+import javax.swing.WindowConstants;
+
 
 
 /**
@@ -182,7 +187,7 @@ public class Gamma2 {
 
       // create a frame for the application window
       JFrame frame = new JFrame("Gamma Function Calculator");
-      frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+      frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
       frame.setSize(500, 300);
       frame.setLocationRelativeTo(null); // Center the frame
 
@@ -193,30 +198,30 @@ public class Gamma2 {
 
       // COMPONENT-1: JLabel for the prompt
       JLabel promptLabel = new JLabel("Enter a number to calculate its gamma function:");
-      promptLabel.setAlignmentX(JLabel.CENTER_ALIGNMENT);
+      promptLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
 
       // COMPONENT-2: JTextField for user input
       JTextField inputField = new JTextField();
       inputField.setBorder(BorderFactory.createEmptyBorder(4, 4, 4, 4));
-      inputField.setAlignmentX(JTextField.CENTER_ALIGNMENT);
+      inputField.setAlignmentX(Component.CENTER_ALIGNMENT);
 
 
       // COMPONENT-3: JLabel to display the result
       JLabel resultLabel = new JLabel();
       resultLabel.setText("Result will be displayed here : ");
-      resultLabel.setAlignmentX(JLabel.CENTER_ALIGNMENT);
+      resultLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
       resultLabel.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
 
 
       // COMPONENT-4: JButton to calculate the gamma function
       JButton calculateButton = new JButton("Calculate");
-      calculateButton.setAlignmentX(JButton.CENTER_ALIGNMENT);
+      calculateButton.setAlignmentX(Component.CENTER_ALIGNMENT);
       calculateButton.setHorizontalTextPosition(SwingConstants.CENTER);
       calculateButton.setVerticalTextPosition(SwingConstants.CENTER);
 
       // COMPONENT-5: JButton to exit the application
       JButton exitButton = new JButton("Close");
-      exitButton.setAlignmentX(JButton.CENTER_ALIGNMENT);
+      exitButton.setAlignmentX(Component.CENTER_ALIGNMENT);
       exitButton.setHorizontalTextPosition(SwingConstants.CENTER);
       exitButton.setVerticalTextPosition(SwingConstants.CENTER);
 
@@ -229,10 +234,9 @@ public class Gamma2 {
             } else {
               resultLabel.setText("Gamma Value " + number + " is " + eulerInfiniteGamma(number));
             }
-          } else if (number < 25) {
-            resultLabel.setText("Gamma Value of " + number + " is " + gamma(number));
           } else {
-            resultLabel.setText("Gamma Value of " + number + " is " + eulerInfiniteGamma(number));
+            double result = gamma(number);
+            resultLabel.setText("Gamma Value of " + number + " is " + result);
           }
         } catch (NumberFormatException ex) {
           resultLabel.setText("Invalid input. Please enter a valid number.");
@@ -241,9 +245,8 @@ public class Gamma2 {
         }
       });
 
-      exitButton.addActionListener(e -> {
-        frame.dispose();
-      });
+      exitButton.addActionListener(e ->
+              frame.dispose());
 
       // add all components 1,2,3,4 to the panel
       panel.add(promptLabel);
