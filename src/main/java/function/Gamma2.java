@@ -1,4 +1,4 @@
-package main.java;
+package function;
 
 import java.awt.Component;
 import javax.swing.BorderFactory;
@@ -199,14 +199,16 @@ public class Gamma2 {
       // COMPONENT-1: JLabel for the prompt
       JLabel promptLabel = new JLabel("Enter a number to calculate its gamma function:");
       promptLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
-      promptLabel.getAccessibleContext().setAccessibleDescription("Prompt for user to enter a number"); 
+      promptLabel.getAccessibleContext().setAccessibleDescription("Prompt for "
+              + "user to enter a number");
 
       // COMPONENT-2: JTextField for user input
       JTextField inputField = new JTextField();
       inputField.setBorder(BorderFactory.createEmptyBorder(4, 4, 4, 4));
       inputField.setAlignmentX(Component.CENTER_ALIGNMENT);
       inputField.getAccessibleContext().setAccessibleName("Input Field"); 
-      inputField.getAccessibleContext().setAccessibleDescription("Field for entering a number to calculate its gamma function"); 
+      inputField.getAccessibleContext().setAccessibleDescription("Field for "
+              + "entering a number for gamma function");
 
       // COMPONENT-3: JLabel to display the result
       JLabel resultLabel = new JLabel();
@@ -214,7 +216,8 @@ public class Gamma2 {
       resultLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
       resultLabel.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
       resultLabel.getAccessibleContext().setAccessibleName("Result Label"); 
-      resultLabel.getAccessibleContext().setAccessibleDescription("Displays the result of the gamma function calculation"); 
+      resultLabel.getAccessibleContext().setAccessibleDescription("Displays the "
+              + "result of the gamma function calculation");
 
 
       // COMPONENT-4: JButton to calculate the gamma function
@@ -223,7 +226,8 @@ public class Gamma2 {
       calculateButton.setHorizontalTextPosition(SwingConstants.CENTER);
       calculateButton.setVerticalTextPosition(SwingConstants.CENTER);
       calculateButton.getAccessibleContext().setAccessibleName("Calculate Button"); 
-      calculateButton.getAccessibleContext().setAccessibleDescription("Button to calculate the gamma function"); 
+      calculateButton.getAccessibleContext().setAccessibleDescription("Button to "
+              + "calculate the gamma function");
 
       // COMPONENT-5: JButton to exit the application
       JButton exitButton = new JButton("Close");
@@ -231,7 +235,8 @@ public class Gamma2 {
       exitButton.setHorizontalTextPosition(SwingConstants.CENTER);
       exitButton.setVerticalTextPosition(SwingConstants.CENTER);
       exitButton.getAccessibleContext().setAccessibleName("Close Button"); 
-      exitButton.getAccessibleContext().setAccessibleDescription("Button to close the application"); 
+      exitButton.getAccessibleContext().setAccessibleDescription("Button to "
+              + "close the application");
 
       calculateButton.addActionListener(e -> {
         try {
