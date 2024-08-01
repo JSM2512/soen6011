@@ -7,7 +7,7 @@ This project is a Gamma Function Calculator implemented in Java using Swing for 
 - [Overview](#overview)
 - [Features](#features)
 - [Requirements](#requirements)
-- [Setup](#setup)
+- [Setup and Run using Java](#setup)
 - [Running the Application (by IDE)](#running-the-application)
 - [Accessibility](#accessibility)
 
@@ -28,7 +28,7 @@ The Gamma Function Calculator is a simple tool that computes the gamma function 
 - IntelliJ IDEA (or any other Java IDE)
 - Git
 
-## Setup
+## Setup and Run using Java
 
 1. **Clone the repository:**
 
