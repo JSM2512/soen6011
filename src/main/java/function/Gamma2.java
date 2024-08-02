@@ -186,8 +186,8 @@ public class Gamma2 {
       logger.info("Accessible Description: " + ac.getAccessibleDescription());
       logger.info("");
     } else {
-        logger.info("AccessibleContext is null");
-        logger.info("");
+      logger.info("AccessibleContext is null");
+      logger.info("");
     }
   }
 
