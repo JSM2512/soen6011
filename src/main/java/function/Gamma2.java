@@ -1,6 +1,8 @@
 package function;
 
 import java.awt.Component;
+import java.util.logging.Logger;
+import javax.accessibility.AccessibleContext;
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
@@ -171,6 +173,25 @@ public class Gamma2 {
   }
 
   /**
+   * Inspects the accessibility properties of a Swing component
+   * and logs the accessible name and description.
+   *
+   * @param component The Swing component to be inspected.
+   */
+  public static void inspectAccessibility(Component component) {
+    AccessibleContext ac = component.getAccessibleContext();
+    Logger logger = Logger.getLogger(Gamma2.class.getName());
+    if (ac != null) {
+      logger.info("Accessible Name: " + ac.getAccessibleName());
+      logger.info("Accessible Description: " + ac.getAccessibleDescription());
+      logger.info("");
+    } else {
+        logger.info("AccessibleContext is null");
+        logger.info("");
+    }
+  }
+
+  /**
    * Entry point for the application that initializes
    * and displays the GUI for the gamma function calculator.
    *
@@ -270,6 +291,14 @@ public class Gamma2 {
 
       frame.add(panel);
       frame.setVisible(true);
+
+      // Inspect accessibility
+      inspectAccessibility(promptLabel);
+      inspectAccessibility(inputField);
+      inspectAccessibility(resultLabel);
+      inspectAccessibility(calculateButton);
+      inspectAccessibility(exitButton);
+
     });
   }
 }
